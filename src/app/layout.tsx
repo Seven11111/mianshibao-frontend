@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import BasicLayout from "@/app/layouts/BasicLayout";
+import BasicLayout2 from "@/app/layouts/BasicLayout2";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh">
       <body className={inter.className}>
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+          <BasicLayout>{children}</BasicLayout>
+        </AntdRegistry>
       </body>
     </html>
   );
