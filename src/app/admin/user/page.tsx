@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./index.css";
 import { Button } from "antd";
 import { Metadata } from "next";
 
