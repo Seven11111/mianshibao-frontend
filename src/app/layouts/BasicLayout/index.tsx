@@ -12,6 +12,9 @@ import Link from "next/link";
 import { menus } from "../../../../config/menu";
 import GlobalFooter from "@/app/components/GlobalFooter";
 import Image from "next/image";
+import { listQuestionBankVoByPageUsingPost } from "@/api/questionBankController";
+import { RootState } from "@/stores";
+import { useSelector } from "react-redux";
 
 const MenuCard = () => {
   const { token } = theme.useToken();
@@ -65,8 +68,17 @@ interface Props {
   children: React.ReactNode;
 }
 
+/**
+ * 通用布局
+ * @param children
+ * @constructor
+ */
 export default function BasicLayout({ children }: Props) {
+  listQuestionBankVoByPageUsingPost({}).then((res) => {
+    console.log(res);
+  });
   const pathname = usePathname();
+  const loginUser = useSelector((state: RootState) => state.loginUser);
 
   return (
     <div
@@ -91,9 +103,9 @@ export default function BasicLayout({ children }: Props) {
           pathname,
         }}
         avatarProps={{
-          src: "https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg",
+          src: loginUser.userAvatar || "/assets/logo.png",
           size: "small",
-          title: "李明",
+          title: loginUser.userName || "李明",
           render: (props, dom) => {
             return (
               <Dropdown
@@ -126,15 +138,15 @@ export default function BasicLayout({ children }: Props) {
           ];
         }}
         headerTitleRender={(logo, title) => {
-            return (
-                <a
-                    href="/" // 点击跳转到首页
-                    // style={{ display: 'flex', alignItems: 'center', color: 'inherit' }}
-                >
-                    {logo}
-                    {title}
-                </a>
-            );
+          return (
+            <a
+              href="/" // 点击跳转到首页
+              // style={{ display: 'flex', alignItems: 'center', color: 'inherit' }}
+            >
+              {logo}
+              {title}
+            </a>
+          );
         }}
         // 渲染底部栏
         footerRender={() => {
