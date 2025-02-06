@@ -4,10 +4,12 @@ import "./globals.css";
 import React, { useCallback, useEffect } from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import BasicLayout from "@/app/layouts/BasicLayout";
-import store, {AppDispatch} from "@/stores";
-import {Provider, useDispatch} from "react-redux";
-import {getLoginUserUsingGet} from "@/api/userController";
-import {setLoginUser} from "@/stores/loginUser";
+import store, { AppDispatch } from "@/stores";
+import { Provider, useDispatch } from "react-redux";
+import { getLoginUserUsingGet } from "@/api/userController";
+import { setLoginUser } from "@/stores/loginUser";
+import AccessLayout from "@/access/AccessLayout";
+import AccessEnum from "@/access/accessEnum";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,9 +37,13 @@ const InitLayout: React.FC<
     } else {
       // 测试代码，实际可删除
       // setTimeout(() => {
-      //   const testUser = { userName: "测试登录", id: 1 };
+      //   const testUser = {
+      //     userName: "测试登录",
+      //     id: 1,
+      //     userRole: AccessEnum.ADMIN,
+      //   };
       //   dispatch(setLoginUser(testUser));
-      // }, 3000);
+      // }, 1000);
     }
   }, []);
 
@@ -53,14 +59,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="zh">
       <body className={inter.className}>
         <AntdRegistry>
           <Provider store={store}>
             <InitLayout>
-              <BasicLayout>{children}</BasicLayout>
+              <BasicLayout>
+                <AccessLayout>{children}</AccessLayout>
+              </BasicLayout>
             </InitLayout>
           </Provider>
         </AntdRegistry>

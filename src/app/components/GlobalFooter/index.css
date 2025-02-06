@@ -1,8 +1,0 @@
-.global-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(239, 239, 239, 0.4); /* 将这里的0.7替换为您想要的透明度 */
-    padding: 16px;
-    text-align: center;
-}

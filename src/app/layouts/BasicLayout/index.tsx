@@ -6,15 +6,17 @@ import {
 } from "@ant-design/icons";
 import { ProLayout } from "@ant-design/pro-components";
 import { Divider, Dropdown, Input, theme } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { menus } from "../../../../config/menu";
-import GlobalFooter from "@/app/components/GlobalFooter";
+import GlobalFooter from "@/components/GlobalFooter";
 import Image from "next/image";
-import { listQuestionBankVoByPageUsingPost } from "@/api/questionBankController";
 import { RootState } from "@/stores";
 import { useSelector } from "react-redux";
+import menuAccess from "@/access/menuAccess";
+import MdEditor from "@/components/MdEditor";
+import MdViewer from "@/components/MdViewer";
 
 const MenuCard = () => {
   const { token } = theme.useToken();
@@ -74,11 +76,12 @@ interface Props {
  * @constructor
  */
 export default function BasicLayout({ children }: Props) {
-  listQuestionBankVoByPageUsingPost({}).then((res) => {
-    console.log(res);
-  });
+  // listQuestionBankVoByPageUsingPost({}).then((res) => {
+  //   console.log(res);
+  // });
   const pathname = usePathname();
   const loginUser = useSelector((state: RootState) => state.loginUser);
+  const [text, setText] = useState<string>("");
 
   return (
     <div
@@ -155,7 +158,7 @@ export default function BasicLayout({ children }: Props) {
         onMenuHeaderClick={(e) => console.log(e)}
         // 定义有哪些菜单
         menuDataRender={() => {
-          return menus;
+          return menuAccess(loginUser, menus);
         }}
         // 定义了菜单项如何渲染
         menuItemRender={(item, dom) => (
@@ -164,6 +167,8 @@ export default function BasicLayout({ children }: Props) {
           </Link>
         )}
       >
+        <MdEditor value={text} onChange={setText} />
+        <MdViewer value={text} />
         {children}
       </ProLayout>
     </div>
