@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React, { useCallback, useEffect } from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import BasicLayout from "@/app/layouts/BasicLayout";
+import BasicLayout from "@/layouts/BasicLayout";
 import store, { AppDispatch } from "@/stores";
 import { Provider, useDispatch } from "react-redux";
 import { getLoginUserUsingGet } from "@/api/userController";
