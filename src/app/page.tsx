@@ -5,6 +5,8 @@ import "./index.css";
 import Link from "next/link";
 import { listQuestionBankVoByPageUsingPost } from "@/api/questionBankController";
 import { listQuestionVoByPageUsingPost } from "@/api/questionController";
+import QuestionBankList from "@/components/QuestionBankList";
+import QuestionList from "@/components/QuestionList";
 
 /**
  * 主页
@@ -37,18 +39,18 @@ export default async function HomePage() {
   }
 
   return (
-    <div id="homePage">
+    <div id="homePage" className="max-width-content">
       <Flex justify="space-between" align="center">
         <Title level={3}>最新题库</Title>
         <Link href={"/banks"}>查看更多</Link>
       </Flex>
-      {JSON.stringify(questionBankList)}
-      {JSON.stringify(questionList)}
-
-      <div>题库列表</div>
+      <QuestionBankList questionBankList={questionBankList} />
       <Divider />
-      <Title level={3}>最新题目</Title>
-      <div>题目列表</div>
+      <Flex justify="space-between" align="center">
+        <Title level={3}>最新题目</Title>
+        <Link href={"/questions"}>查看更多</Link>
+      </Flex>
+      <QuestionList questionList={questionList} />
     </div>
   );
 }
