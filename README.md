@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 面试宝-面试刷题平台
 
-## Getting Started
+## 项目介绍
 
-First, run the development server:
+基于 Next.js 服务端渲染 + Spring Boot + Redis + MySQL + Elasticsearch 的 面试刷题平台。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+管理员可以创建题库、题目和题解，并批量关联题目到题库；用户可以注册登录、分词检索题目、在线刷题并查看刷题记录日历等。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+使用数据库连接池、热 Key 探测、缓存、高级数据结构来提升性能。通过流量控制、熔断、动态 IP 黑白名单过滤、同端登录冲突检测、分级反爬虫策略来提升系统和内容的安全性。
 
-You can start editing the page by modifying `app/index.tsx`. The page auto-updates as you edit the file.
+>成品展示：[面试宝](http://82.157.231.49/)
+>
+>项目后端：[Seven11111/mianshibao-backend: 面试宝后端](https://github.com/Seven11111/mianshibao-backend)
+>
+>项目前端：[Seven11111/mianshibao-frontend: 面试宝前端](https://github.com/Seven11111/mianshibao-frontend)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+![image-20250217213805130](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213805130.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 项目展示
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+题目搜索页面：
 
-## Deploy on Vercel
+![image-20250217213843832](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213843832.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+题库详情页面：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![image-20250217213921165](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213921165.png)
+
+题目管理页面，涉及批量操作和动态弹窗的开发：
+
+![image-20250217213959813](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213959813.png)
+
+本项目架构设计图：
+
+[![img](https://camo.githubusercontent.com/03a3ea94f8abc8459026b675b9e24b166253fa841bc6f260a989b82c7177b079/68747470733a2f2f7069632e797570692e6963752f313238352f3230323430393239313633343738392e706e67)](https://camo.githubusercontent.com/03a3ea94f8abc8459026b675b9e24b166253fa841bc6f260a989b82c7177b079/68747470733a2f2f7069632e797570692e6963752f313238352f3230323430393239313633343738392e706e67)
+
+## 技术选型
+
+### 后端
+
+- Java Spring Boot 框架 + Maven 多模块构建
+- MySQL 数据库 + MyBatis-Plus 框架 + MyBatis X
+- Redis 分布式缓存 + Caffeine 本地缓存
+- Redission 分布式锁 + BitMap + BloomFilter
+- ⭐️ Elasticsearch 搜索引擎
+- ⭐️ Druid 数据库连接池 + 并发编程
+- ⭐️ Sa-Token 权限控制
+- ⭐️ HotKey 热点探测
+- ⭐️ Sentinel 流量控制
+- ⭐️ Nacos 配置中心
+- ⭐️ 多角度项目优化：性能、安全性、可用性
+
+### 前端
+
+- React 18 框架
+- ⭐️ Next.js 服务端渲染
+- ⭐️ Redux 状态管理
+- Ant Design 组件库
+- 富文本编辑器组件
+- ⭐️ 前端工程化：ESLint + Prettier + TypeScript
+- ⭐️ OpenAPI 前端代码生成
