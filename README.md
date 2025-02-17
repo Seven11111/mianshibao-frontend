@@ -16,21 +16,21 @@
 
 
 
-![image-20250217213805130](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213805130.png)
+![image-20250217213805130](./public/assets/demo_1.png)
 
 ## 项目展示
 
 题目搜索页面：
 
-![image-20250217213843832](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213843832.png)
+![image-20250217213843832](./public/assets/demo_2.png)
 
 题库详情页面：
 
-![image-20250217213921165](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213921165.png)
+![image-20250217213921165](./public/assets/demo_3.png)
 
 题目管理页面，涉及批量操作和动态弹窗的开发：
 
-![image-20250217213959813](C:\Users\彭丽菊\AppData\Roaming\Typora\typora-user-images\image-20250217213959813.png)
+![image-20250217213959813](./public/assets/demo_4.png)
 
 本项目架构设计图：
 
