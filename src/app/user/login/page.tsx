@@ -64,7 +64,7 @@ const UserLoginPage: React.FC = (props) => {
             size: "large",
             prefix: <UserOutlined />,
           }}
-          placeholder={"请输入用户账号"}
+          placeholder={"请输入用户账号 user/admin"}
           rules={[
             {
               required: true,
@@ -78,7 +78,7 @@ const UserLoginPage: React.FC = (props) => {
             size: "large",
             prefix: <LockOutlined />,
           }}
-          placeholder={"请输入密码"}
+          placeholder={"请输入密码 12345678"}
           rules={[
             {
               required: true,
