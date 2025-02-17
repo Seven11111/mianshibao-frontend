@@ -31,7 +31,7 @@ const UserLoginPage: React.FC = (props) => {
       const res = await userLoginUsingPost(values);
       if (res.data) {
         message.success("登录成功！");
-        message.info(JSON.stringify(res.data));
+        // message.info(JSON.stringify(res.data));
         // 保存用户登录态
         dispatch(setLoginUser(res.data));
         router.replace("/");

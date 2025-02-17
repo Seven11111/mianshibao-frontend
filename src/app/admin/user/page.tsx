@@ -8,7 +8,7 @@ import {
 import { PlusOutlined } from "@ant-design/icons";
 import type { ActionType, ProColumns } from "@ant-design/pro-components";
 import { PageContainer, ProTable } from "@ant-design/pro-components";
-import { Button, message, Popconfirm, Space, Typography } from "antd";
+import { Button, Input, message, Popconfirm, Space, Typography } from "antd";
 import React, { useRef, useState } from "react";
 import { DEFAULT_PAGINATION } from "@/constants/pagination";
 
@@ -63,6 +63,11 @@ const UserAdminPage: React.FC = () => {
       title: "账号",
       dataIndex: "userAccount",
       valueType: "text",
+      renderFormItem: (item, { defaultRender, ...rest }, form) => {
+        // 获取当前表单项的值
+        const field = form.getFieldValue(item.dataIndex);
+        return <Input disabled={updateModalVisible} defaultValue={field} />;
+      },
     },
     {
       title: "用户名",

@@ -16,10 +16,10 @@ export const menus = [
     path: "/questions",
     name: "题目",
   },
-  {
-    name: "面试宝",
-    path: "/",
-  },
+  // {
+  //   name: "面试宝",
+  //   path: "/",
+  // },
   {
     path: "/admin",
     name: "管理",
